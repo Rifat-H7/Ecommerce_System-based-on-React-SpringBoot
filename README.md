@@ -16,14 +16,14 @@ A multi module web application project based on Java Spring boot and React
 
 2. Spring Security
 
-3. Spring Data JPA
+3. JWT, Oauth2
 
-4. Global Exception Handle
+4. Spring Data JPA
 
-5. MySQL
+5. Global Exception Handle
 
-Validation
+6. MySQL
 
-Oauth2
+7. Validation
 
-Payment Gateway
+8. Payment Gateway
