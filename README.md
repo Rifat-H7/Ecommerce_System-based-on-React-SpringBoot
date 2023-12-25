@@ -2,25 +2,25 @@
 
 A multi module web application project based on Java Spring boot and React
 
-Technologies Used [Frontend]:
+# Technologies Used [Frontend]:
 
-React JS
+1. React JS
 
-Tailwind CSS
+2. Tailwind CSS
 
-React Alice Carousel
+3. React Alice Carousel
 
-Technologies Used [Backend]:
+# Technologies Used [Backend]:
 
-Spring Boot
+1. Spring Boot
 
-Spring Security
+2. Spring Security
 
-Spring Data JPA
+3. Spring Data JPA
 
-Global Exception Handle
+4. Global Exception Handle
 
-MySQL
+5. MySQL
 
 Validation
 
