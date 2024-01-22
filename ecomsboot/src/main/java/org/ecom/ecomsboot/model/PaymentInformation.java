@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 /*@Entity
 @Data
 @AllArgsConstructor
@@ -12,6 +14,6 @@ import lombok.NoArgsConstructor;
 public class PaymentInformation {
     private String cardNumber;
     private String cardHolderName;
-    private String expiryDate;
+    private LocalDate expiryDate;
     private String cvv;
 }

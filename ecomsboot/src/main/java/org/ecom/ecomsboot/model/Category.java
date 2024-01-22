@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Catagory {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -20,6 +20,6 @@ public class Catagory {
     private String name;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "parent_catagory_id")
-    private Catagory parentCatagory;
+    private Category parentCategory;
     private int level;
 }

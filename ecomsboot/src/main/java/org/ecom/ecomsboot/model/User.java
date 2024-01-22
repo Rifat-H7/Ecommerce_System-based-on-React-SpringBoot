@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.ecom.ecomsboot.model.PaymentInformation;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class User {
     private List<Address> addresses=new ArrayList<>();
     @Embedded
     @ElementCollection
-    @CollectionTable(name = "user_payment_information",joinColumns = @JoinColumn(name = "user_id"))
+    @CollectionTable(name = "payment_information",joinColumns = @JoinColumn(name = "user_id"))
     private List<PaymentInformation>paymentInformations=new ArrayList<>();
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     @JsonIgnore

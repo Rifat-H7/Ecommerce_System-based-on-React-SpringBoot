@@ -1,8 +1,6 @@
 package org.ecom.ecomsboot.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
-import jdk.jfr.Enabled;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +26,8 @@ public class Product {
     private double discountedPrice;
     private double discountedPercentage;
     private String brand;
+    private int quantity;
+
     private String color;
     @Embedded
     @ElementCollection
@@ -40,6 +40,6 @@ public class Product {
     private int numRatings;
     @ManyToOne()
     @JoinColumn(name = "catagory_id")
-    private Catagory catagory;
+    private Category category;
     private LocalDateTime createdOn;
 }
