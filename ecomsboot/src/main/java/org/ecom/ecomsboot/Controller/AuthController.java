@@ -2,11 +2,13 @@ package org.ecom.ecomsboot.Controller;
 
 import org.ecom.ecomsboot.config.JwtProvider;
 import org.ecom.ecomsboot.exception.UserException;
+import org.ecom.ecomsboot.model.Cart;
 import org.ecom.ecomsboot.model.User;
 import org.ecom.ecomsboot.repository.UserRepository;
 import org.ecom.ecomsboot.request.LoginRequest;
 import org.ecom.ecomsboot.response.AuthResponse;
 
+import org.ecom.ecomsboot.service.CartService;
 import org.ecom.ecomsboot.service.CustomerUserServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +31,7 @@ public class AuthController {
     private UserRepository userRepository;
     private JwtProvider jwtProvider;
     private PasswordEncoder passwordEncoder;
+    private CartService cartService;
     @PostMapping("/register")
     public ResponseEntity<AuthResponse>createUserHandler(@RequestBody User user) throws UserException {
         String email=user.getEmail();
@@ -47,6 +50,7 @@ public class AuthController {
         createdUser.setFirstName(firstString);
         createdUser.setLastName(lastString);
         User savedUser=userRepository.save(createdUser);
+        Cart cart=cartService.createCart(savedUser);
         Authentication authentication= new UsernamePasswordAuthenticationToken(savedUser.getEmail(),savedUser.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token=jwtProvider.generateToken(authentication);

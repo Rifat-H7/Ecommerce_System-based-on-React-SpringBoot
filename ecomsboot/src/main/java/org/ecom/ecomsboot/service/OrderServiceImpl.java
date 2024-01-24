@@ -53,7 +53,7 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public Order cancledOrder(Long orderId) throws OrderException {
+    public Order cancelOrder(Long orderId) throws OrderException {
         return null;
     }
 
