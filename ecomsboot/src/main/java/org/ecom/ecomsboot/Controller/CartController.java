@@ -1,5 +1,6 @@
 package org.ecom.ecomsboot.Controller;
 
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.ecom.ecomsboot.exception.ProductException;
@@ -7,6 +8,7 @@ import org.ecom.ecomsboot.exception.UserException;
 import org.ecom.ecomsboot.model.Cart;
 import org.ecom.ecomsboot.model.User;
 import org.ecom.ecomsboot.request.AddItemRequest;
+import org.ecom.ecomsboot.response.ApiResponse;
 import org.ecom.ecomsboot.service.CartService;
 import org.ecom.ecomsboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +37,7 @@ public class CartController {
         User user = userService.findUserByJwt(jwt);
 
         cartService.addCartItem(user.getId(), req);
-        ApiResponse res= new ApiResponse(true, "Item added to cart");
+        ApiResponse res= new ApiResponse("Item added to cart", true);
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
 }

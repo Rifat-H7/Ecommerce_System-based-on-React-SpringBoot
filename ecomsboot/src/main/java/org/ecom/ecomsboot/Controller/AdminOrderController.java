@@ -2,6 +2,7 @@ package org.ecom.ecomsboot.Controller;
 
 import org.ecom.ecomsboot.exception.OrderException;
 import org.ecom.ecomsboot.model.Order;
+import org.ecom.ecomsboot.response.ApiResponse;
 import org.ecom.ecomsboot.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,6 +34,13 @@ return new ResponseEntity<List<Order>>(orders,HttpStatus.ACCEPTED);}
 
         Order order = orderService.shippedOrder(orderId);
         return new ResponseEntity<>(order, HttpStatus.ACCEPTED);
+    }
+    @PutMapping("/{orderId}/deliver")
+    public ResponseEntity<Order> deliverOrderHandler(@PathVariable Long orderId,
+                                                     @RequestHeader("Authorization") String jwt) throws OrderException {
+
+        Order order = orderService.deliveredOrder(orderId);
+        return new ResponseEntity<>(order,HttpStatus.OK);
     }
     @PutMapping("/{orderId}/cancel")
     public ResponseEntity<Order> CancelOrderHandler(@PathVariable Long orderId,

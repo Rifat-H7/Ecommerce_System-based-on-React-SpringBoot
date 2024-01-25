@@ -3,6 +3,7 @@ package org.ecom.ecomsboot.Controller;
 import org.ecom.ecomsboot.exception.ProductException;
 import org.ecom.ecomsboot.model.Product;
 import org.ecom.ecomsboot.request.CreateProductRequest;
+import org.ecom.ecomsboot.response.ApiResponse;
 import org.ecom.ecomsboot.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,19 +46,14 @@ public class AdminProductController {
         return new ResponseEntity<>(product, HttpStatus.ACCEPTED);
     }
     @PostMapping("/creates")
-    public ResponseFntity<ApiResponse> createMultipleProduct(@RequestBody CreateProductRequest[] req){
+    public ResponseEntity<ApiResponse> createMultipleProduct(@RequestBody CreateProductRequest[] req){
+        ApiResponse res=new ApiResponse();
 
         for(CreateProductRequest product:req) {
             productService.createProduct(product);
-
-            ApiResponse res=new ApiResponse();
             res.setMessage("product deleted successfully");
             res.setStatus(true);
-
-            return new ResponseEntity<>(res,HttpStatus.CREATED);
         }
+        return new ResponseEntity<>(res,HttpStatus.CREATED);
     }
-
-
-
 }
