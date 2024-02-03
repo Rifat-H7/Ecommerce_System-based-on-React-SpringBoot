@@ -32,11 +32,11 @@ public class AdminProductController {
         res.setStatus(true);
         return new ResponseEntity<>(res,HttpStatus.OK);
     }
-    @GetMapping("/all")
+   /* @GetMapping("/all")
     public ResponseEntity<List<Product>>findAllProducts(){
         List<Product> products=productService.findAllProducts();
         return new ResponseEntity<>(products,HttpStatus.OK);
-    }
+    }*/
 
     @PutMapping("/{productId}/update")
     public ResponseEntity<Product> updateProduct(@PathVariable Long productId,

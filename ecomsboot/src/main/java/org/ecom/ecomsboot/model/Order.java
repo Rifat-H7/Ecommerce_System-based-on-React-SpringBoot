@@ -26,8 +26,8 @@ public class Order {
     private LocalDateTime deliveredOn;
     @OneToOne
     private Address shippingAddress;
-    @Embedded
-    private PaymentDetails paymentDetails=new PaymentDetails();
+    //@Embedded
+    //private PaymentDetails paymentDetails=new PaymentDetails();
     private double totalPrice;
     private Integer totalDiscountedPrice;
     private Integer discount;

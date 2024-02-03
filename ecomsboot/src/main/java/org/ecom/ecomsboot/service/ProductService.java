@@ -8,14 +8,22 @@ import org.ecom.ecomsboot.request.CreateProductRequest;
 import java.util.List;
 
 public interface ProductService {
-    public Product createProduct(CreateProductRequest req);
-    public String deleteProduct(Long productId) throws ProductException;
-    public Product updateProduct(Long productId, Product req) throws ProductException;
-    public Product getProduct(Long productId) throws ProductException;
-    public List<Product> getProductByCategory(String category);
-    public Page<Product>getAllProducts(String category, List<String>colors, List<String>sizes, Integer minPrice, Integer maxPrice, Integer minDiscount, String sort, String stock, Integer pageNumber, Integer pageSize);
 
-    Product findProductById(Long productId);
+    Product createProduct(CreateProductRequest req);
 
-    List<Product> findAllProducts();
+    String deleteProduct(Long productId) throws ProductException;
+
+    Product updateProduct(Long productId, Product req) throws ProductException;
+
+    Product findProductById(Long productId) throws ProductException;
+
+    List<Product> findProductByCategory(String category);
+
+    Page<Product> getAllProducts(String category, List<String> colors, List<String> sizes,
+                                Integer minPrice,
+                                Integer maxPrice,
+                                Integer minDiscount,
+                                String sort, String stock, Integer pageNumber, Integer pageSize);
+
+
 }
