@@ -2,6 +2,8 @@
 
 A multi module web application project based on Java Spring boot and React
 
+API Documentation: http://localhost:8080/v3/api-docs
+
 # Technologies Used [Frontend]:
 
 1. React JS
