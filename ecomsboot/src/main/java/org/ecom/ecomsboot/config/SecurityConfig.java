@@ -31,7 +31,6 @@ public class SecurityConfig {
     private JwtAuthenticationEntryPoint authenticationEntryPoint;
     private JwtAuthenticationFilter authenticationFilter;
 
-
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 
@@ -48,15 +47,10 @@ public class SecurityConfig {
         return http.build();
     }
 
-
-
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
     }
-
-
-
 
     @Bean
     public static PasswordEncoder passwordEncoder(){
